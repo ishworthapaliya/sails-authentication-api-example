@@ -31,6 +31,7 @@ module.exports.policies = {
         'signup': true,
         'login': true,
         'logout': true,
+        'loggedInUser': 'sessionAuth',
         'find': ['sessionAuth', 'isAdmin'], //is loggedin and is Admin
         'findOne': ['sessionAuth', 'isAdmin'] //is loggedin and is Admin
     },

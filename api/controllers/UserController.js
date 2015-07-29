@@ -141,7 +141,7 @@ module.exports = {
         });
     },
 
-    getloggedInUser: function (req, res) {
+    loggedInUser: function (req, res) {
         User.findOne(req.session.me, function foundUser(err, user) {
             if (err) return res.negotiate(err);
 

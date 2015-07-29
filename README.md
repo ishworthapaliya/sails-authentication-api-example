@@ -9,7 +9,7 @@ a [Sails](http://sailsjs.org) application with simple authentication API.
 'POST /signup': 'UserController.signup',
 'PUT /login': 'UserController.login',
 'GET /logout': 'UserController.logout',
-'GET /me': 'UserController.getloggedInUser'
+'GET /me': 'UserController.loggedInUser'
 ```
 
 ##Signup
