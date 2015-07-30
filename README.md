@@ -7,6 +7,7 @@ a [Sails](http://sailsjs.org) application with simple authentication API.
 
 ```
 git clone https://github.com/ishworthapaliya/sails-authentication-api-example.git
+
 npm install
 ```
 
@@ -14,6 +15,7 @@ npm install
 ##Routes
 
 see config/routes.js
+
 see api/controllers/UserController.js
 
 ```
