@@ -3,7 +3,18 @@
 a [Sails](http://sailsjs.org) application with simple authentication API.
 
 
+##Clone and install dependency
+
+```
+git clone https://github.com/ishworthapaliya/sails-authentication-api-example.git
+npm install
+```
+
+
 ##Routes
+
+see config/routes.js
+see api/controllers/UserController.js
 
 ```
 'POST /signup': 'UserController.signup',
