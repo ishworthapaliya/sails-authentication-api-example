@@ -53,6 +53,13 @@ module.exports = {
             type: 'string',
             enum: ['User', 'Admin'],
             defaultsTo: 'User'
+        },
+        
+        toJSON: function(){
+            var obj = this.toObject();
+            delete obj.encryptedPassword;
+            return obj;
         }
     }
+    
 };
