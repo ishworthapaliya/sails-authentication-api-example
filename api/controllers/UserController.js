@@ -16,7 +16,10 @@ module.exports = {
             email: req.param('email')
         }, function foundUser(err, user) {
             if (err) return res.negotiate(err);
-            if (!user) return res.notFound();
+            if (!user) {
+                res.status(401);
+                res.send('Incorrect email or password');
+            }else{
 
             // Compare password attempt from the form params to the encrypted password
             // from the database (`user.password`)
@@ -32,7 +35,8 @@ module.exports = {
                 // If the password from the form params doesn't checkout w/ the encrypted
                 // password from the database...
                 incorrect: function () {
-                    return res.notFound();
+                    res.status(401);
+                    res.send('Incorrect email or password');
                 },
 
                 success: function () {
@@ -40,12 +44,15 @@ module.exports = {
                     // Store user id in the user session
                     req.session.me = user.id;
                     req.session.role = user.role;
+                     res.status(200);
+                      res.send('Login successful');
 
                     // All done- let the client know that everything worked.
-                    return res.ok();
+                    //return res.ok();
                     //return req.session.me;
                 }
             });
+        }
         });
 
     },
@@ -136,7 +143,8 @@ module.exports = {
             req.session.role = null;
 
             // Either send a 200 OK or redirect to the home page
-            return res.ok();
+            res.status(200);
+            res.send('Logout successful');
 
         });
     },
@@ -146,8 +154,8 @@ module.exports = {
             if (err) return res.negotiate(err);
 
             if (!user) {
-                sails.log.verbose('Not found');
-                return res.notFound();
+                res.status(404);
+                res.send('Resource not found');
             }
 
             return res.json({
