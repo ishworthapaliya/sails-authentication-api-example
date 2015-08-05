@@ -122,7 +122,7 @@ module.exports = {
     },
 
     /**
-     * Log out of Activity Overlord.
+     * Log out
      * (wipes `me` from the sesion)
      */
     logout: function (req, res) {
@@ -148,6 +148,10 @@ module.exports = {
 
         });
     },
+    
+    /**
+    * Get loggedin user info
+    */
 
     loggedInUser: function (req, res) {
         User.findOne(req.session.me, function foundUser(err, user) {
